@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pytest
-from group import  Group
+from group import Group
 from applicstion import Application
 
 @pytest.fixture()
