@@ -1,14 +1,13 @@
 import pytest
 from fixture.application import Application
 
-fixture - None
+fixture = None
 
 @pytest.fixture
 def app (request):
     global fixture
     if fixture is None:
         fixture = Application()
-
     else:
         if not fixture is_valid():
             fixture = Application ()
