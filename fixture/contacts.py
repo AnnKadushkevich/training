@@ -4,6 +4,11 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
+    def open_home_page(self):
+        wd = self.app.wd
+        if not (wd.current_url.endswith ( "/" ) and len ( wd.find_elements_by_name ( "firstnam" ) ) > 0):
+            wd.find_element_by_link_text ( "home" ).click ()
+
     def fill_contact_form(self, contact):
         wd = self.app.wd
         wd.find_element_by_name ( "firstname" ).click ()
@@ -81,6 +86,7 @@ class ContactHelper:
 
     def create(self, contact):
         wd = self.app.wd
+        self.app.open_home_page ()
         # init contact creation
         wd.find_element_by_link_text ( "add new" ).click ()
         self.fill_contact_form ( contact )
